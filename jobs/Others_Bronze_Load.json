@@ -1,0 +1,75 @@
+{
+  "job_id": 383362241028097,
+  "creator_user_name": "admin@jkalexanderhotmail.onmicrosoft.com",
+  "run_as_user_name": "admin@jkalexanderhotmail.onmicrosoft.com",
+  "run_as_owner": true,
+  "settings": {
+    "name": "Others Bronze Load",
+    "email_notifications": {
+      "no_alert_for_skipped_runs": false
+    },
+    "webhook_notifications": {},
+    "timeout_seconds": 0,
+    "max_concurrent_runs": 1,
+    "tasks": [
+      {
+        "task_key": "CostCenter",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/CostCenter_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "OthersBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "Currency",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/Currency_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "OthersBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "FiscalPeriod",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/FiscalPeriod_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "OthersBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      }
+    ],
+    "job_clusters": [
+      {
+        "job_cluster_key": "OthersBronze_cluster",
+        "new_cluster": {
+          "cluster_name": "",
+          "spark_version": "17.3.x-scala2.13",
+          "node_type_id": "Standard_D4s_v3",
+          "spark_env_vars": {
+            "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+          },
+          "data_security_mode": "DATA_SECURITY_MODE_DEDICATED",
+          "runtime_engine": "STANDARD",
+          "kind": "CLASSIC_PREVIEW",
+          "is_single_node": true
+        }
+      }
+    ],
+    "format": "MULTI_TASK",
+    "queue": {
+      "enabled": true
+    },
+    "performance_target": "PERFORMANCE_OPTIMIZED"
+  },
+  "created_time": 1772850658875
+}

@@ -1,0 +1,123 @@
+{
+  "job_id": 640020984871877,
+  "creator_user_name": "admin@jkalexanderhotmail.onmicrosoft.com",
+  "run_as_user_name": "admin@jkalexanderhotmail.onmicrosoft.com",
+  "run_as_owner": true,
+  "settings": {
+    "name": "Purchase Bronze Load",
+    "email_notifications": {
+      "no_alert_for_skipped_runs": false
+    },
+    "webhook_notifications": {},
+    "timeout_seconds": 0,
+    "max_concurrent_runs": 1,
+    "tasks": [
+      {
+        "task_key": "Parties",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/Parties_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "PartyAddress",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/PartyAddress_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "PurchCategory",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/PurchCategory_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "PurchContracts",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/PurchContracts_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "PurchItem",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/PurchItem_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "PurchaseOrder",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/PurchaseOrder_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {},
+        "webhook_notifications": {}
+      },
+      {
+        "task_key": "VendTable",
+        "run_if": "ALL_SUCCESS",
+        "notebook_task": {
+          "notebook_path": "/Workspace/Users/admin@jkalexanderhotmail.onmicrosoft.com/Repo_adb/Bronze/VendTable_Bronze",
+          "source": "WORKSPACE"
+        },
+        "job_cluster_key": "PurchBronze_cluster",
+        "timeout_seconds": 0,
+        "email_notifications": {}
+      }
+    ],
+    "job_clusters": [
+      {
+        "job_cluster_key": "PurchBronze_cluster",
+        "new_cluster": {
+          "cluster_name": "",
+          "spark_version": "17.3.x-scala2.13",
+          "node_type_id": "Standard_D4s_v3",
+          "spark_env_vars": {
+            "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+          },
+          "data_security_mode": "DATA_SECURITY_MODE_DEDICATED",
+          "runtime_engine": "STANDARD",
+          "kind": "CLASSIC_PREVIEW",
+          "is_single_node": true
+        }
+      }
+    ],
+    "format": "MULTI_TASK",
+    "queue": {
+      "enabled": true
+    },
+    "performance_target": "PERFORMANCE_OPTIMIZED"
+  },
+  "created_time": 1772849960204
+}
